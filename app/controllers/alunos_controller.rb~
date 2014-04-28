@@ -35,6 +35,7 @@ class AlunosController < ApplicationController
   end
 
   def pdf
+        @alunos = Aluno.all
 	@html = render_to_string(:action => :review, :id=>1)
 	@kit = PDFKit.new(@html) 
 	send_data(
@@ -109,9 +110,8 @@ class AlunosController < ApplicationController
       if aluno.nota4 == nil
         aluno.nota4 = 0
       end
-	
-		(aluno.nota1 + aluno.nota2 + aluno.nota3 
-                + aluno.nota4)/4
+	puts("#{aluno.nome} = #{(aluno.nota1 + aluno.nota2 + aluno.nota3 + aluno.nota4)/4}")
+		return (aluno.nota1 + aluno.nota2 + aluno.nota3 + aluno.nota4)/4
 
     end
 

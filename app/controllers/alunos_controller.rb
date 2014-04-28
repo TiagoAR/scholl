@@ -110,9 +110,8 @@ class AlunosController < ApplicationController
       if aluno.nota4 == nil
         aluno.nota4 = 0
       end
-	
-		(aluno.nota1 + aluno.nota2 + aluno.nota3 
-                + aluno.nota4)/4
+	puts("#{aluno.nome} = #{(aluno.nota1 + aluno.nota2 + aluno.nota3 + aluno.nota4)/4}")
+		return (aluno.nota1 + aluno.nota2 + aluno.nota3 + aluno.nota4)/4
 
     end
 
@@ -146,19 +145,19 @@ class AlunosController < ApplicationController
 	end
 
 	if @menorPos == 1
-          aluno.nota1 = 100
+          aluno.nota1 = 10
 	end
 
 	if @menorPos == 2
-          aluno.nota2 = 100
+          aluno.nota2 = 10
 	end
 
 	if @menorPos == 3
-          aluno.nota3 = 100
+          aluno.nota3 = 10
 	end
 
 	if @menorPos == 4
-          aluno.nota4 = 100
+          aluno.nota4 = 10
 	end
 
 	media(aluno)

@@ -1,4 +1,4 @@
-<h1>Relatório</h1>
+<h1>Relatorio</h1>
 
 <table>
   <thead>
@@ -8,7 +8,7 @@
       <th>Nota 2</th>
       <th>Nota 3</th>
       <th>Nota 4</th>
-      <th>Média</th>
+      <th>Media</th>
       <th>Resultado</th>
     </tr>
   </thead>
@@ -21,8 +21,7 @@
         <td><%= aluno.nota2 %></td>
         <td><%= aluno.nota3 %></td>
         <td><%= aluno.nota4 %></td>
-        <td><%= (aluno.nota1 + aluno.nota2 + aluno.nota1=3 
-                + aluno.nota4)/4 %></td>
+        <td><%= media(aluno) %></td>
         <td><%= situacaoAluno(aluno) %></td>
       </tr>
     <% end %>

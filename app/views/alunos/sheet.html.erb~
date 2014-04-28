@@ -1,6 +1,37 @@
-<h1>Editing aluno</h1>
+<h1>Ficha do aluno</h1>
 
-<%= render 'form' %>
+<%= form_for(@aluno) do |f| %>
+  <% if @aluno.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@aluno.errors.count, "error") %> prohibited this aluno from being saved:</h2>
 
-<%= link_to 'Show', @aluno %> |
+      <ul>
+      <% @aluno.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :nota1 %><br>
+    <%= f.number_field :nota1 %>
+  </div>
+  <div class="field">
+    <%= f.label :nota2 %><br>
+    <%= f.number_field :nota2 %>
+  </div>
+  <div class="field">
+    <%= f.label :nota3 %><br>
+    <%= f.number_field :nota3 %>
+  </div>
+  <div class="field">
+    <%= f.label :nota4 %><br>
+    <%= f.number_field :nota4 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
 <%= link_to 'Back', alunos_path %>
