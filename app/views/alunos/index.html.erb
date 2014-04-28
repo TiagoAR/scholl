@@ -1,0 +1,37 @@
+<h1>Listing alunos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Serie</th>
+      <th>Turma</th>
+      <th>Endereco</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @alunos.each do |aluno| %>
+      <tr>
+        <td><%= aluno.nome %></td>
+        <td><%= aluno.serie %></td>
+        <td><%= aluno.turma %></td>
+        <td><%= aluno.endereco %></td>
+        <td><%= link_to 'Visualizar', aluno %></td>
+        <td><%= link_to 'Editar', edit_aluno_path(aluno) %></td>
+        <td><%= link_to 'Deletar', aluno, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ficha do Aluno', alunos_sheet_url(aluno) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+
+<%= link_to 'Relatorio', alunos_pdf_url(1) %>
+
+<br/>
+<br/>
+<%= link_to 'New Aluno', new_aluno_path %>

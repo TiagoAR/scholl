@@ -1,0 +1,31 @@
+<h1>Relatório</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Aluno</th>
+      <th>Nota 1</th>
+      <th>Nota 2</th>
+      <th>Nota 3</th>
+      <th>Nota 4</th>
+      <th>Média</th>
+      <th>Resultado</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @alunos.each do |aluno| %>
+      <tr>
+        <td><%= aluno.nome %></td>
+        <td><%= aluno.nota1 %></td>
+        <td><%= aluno.nota2 %></td>
+        <td><%= aluno.nota3 %></td>
+        <td><%= aluno.nota4 %></td>
+        <td><%= media(aluno) %></td>
+        <td><%= situacaoAluno(aluno) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

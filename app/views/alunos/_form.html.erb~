@@ -1,0 +1,49 @@
+<%= form_for(@aluno) do |f| %>
+  <% if @aluno.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@aluno.errors.count, "error") %> prohibited this aluno from being saved:</h2>
+
+      <ul>
+      <% @aluno.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :serie %><br>
+    <%= f.number_field :serie %>
+  </div>
+  <div class="field">
+    <%= f.label :turma %><br>
+    <%= f.text_field :turma %>
+  </div>
+  <div class="field">
+    <%= f.label :endereco %><br>
+    <%= f.text_field :endereco %>
+  </div>
+  <div class="field">
+    <%= f.label :nota1 %><br>
+    <%= f.text_field :nota1 %>
+  </div>
+  <div class="field">
+    <%= f.label :nota2 %><br>
+    <%= f.text_field :nota2 %>
+  </div>
+  <div class="field">
+    <%= f.label :nota3 %><br>
+    <%= f.text_field :nota3 %>
+  </div>
+  <div class="field">
+    <%= f.label :nota4 %><br>
+    <%= f.text_field :nota4 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
