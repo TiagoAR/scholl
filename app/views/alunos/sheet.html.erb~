@@ -1,3 +1,16 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js">
+</script>
+
+<script>
+	function MediaController($scope)
+	{
+		$scope.med= ($scope.nota1+$scope.nota2+$scope.nota3+$scope.nota4)/4;
+		$scope.calculemedia = function(){
+			$scope.med= ($scope.nota1+$scope.nota2+$scope.nota3+$scope.nota4)/4;
+		}
+	}
+</script>
+<div ng-app ng-controller="MediaController">
 <h1>Ficha do aluno</h1>
 
 <%= form_for(@aluno) do |f| %>
@@ -14,24 +27,26 @@
   <% end %>
   <div class="field">
     <%= f.label :nota1 %><br>
-    <%= f.number_field :nota1 %>
+    <%= f.number_field :nota1, 'ng-model'=>"nota1", 'ng-change'=>"calculemedia()", 'ng-init'=>"nota1=#{@aluno.nota1}"%>
   </div>
   <div class="field">
     <%= f.label :nota2 %><br>
-    <%= f.number_field :nota2 %>
+    <%= f.number_field :nota2, 'ng-model'=>"nota2", 'ng-change'=>"calculemedia()", 'ng-init'=>"nota2=#{@aluno.nota2}" %>
   </div>
   <div class="field">
     <%= f.label :nota3 %><br>
-    <%= f.number_field :nota3 %>
+    <%= f.number_field :nota3, 'ng-model'=>"nota3", 'ng-change'=>"calculemedia()" , 'ng-init'=>"nota3=#{@aluno.nota3}"%>
   </div>
   <div class="field">
     <%= f.label :nota4 %><br>
-    <%= f.number_field :nota4 %>
+    <%= f.number_field :nota4, 'ng-model'=>"nota4", 'ng-change'=>"calculemedia()" , 'ng-init'=>"nota4=#{@aluno.nota4}"%>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
 
+<p>{{med}}</p>
+<div>
 
 <%= link_to 'Back', alunos_path %>
