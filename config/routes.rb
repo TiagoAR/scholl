@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :alunos
-	
+
+  root 'alunos#index'	
   get 'alunos/sheet/:id' => 'alunos#sheet', as: :alunos_sheet 
   get 'alunos/review/:id' => 'alunos#review', as: :alunos_review
   get 'alunos/pdf/:id' => 'alunos#pdf', as: :alunos_pdf

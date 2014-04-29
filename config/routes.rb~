@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :alunos
 	
   get 'alunos/sheet/:id' => 'alunos#sheet', as: :alunos_sheet 
-  get 'alunos/review/:id' => 'alunos#review', :alunos_review
+  get 'alunos/review/:id' => 'alunos#review', as: :alunos_review
   get 'alunos/pdf/:id' => 'alunos#pdf', as: :alunos_pdf
 
   # The priority is based upon order of creation: first created -> highest priority.

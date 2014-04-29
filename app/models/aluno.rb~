@@ -1,5 +1,5 @@
 class Aluno < ActiveRecord::Base
-  
+    
   def media
     @nota1 = read_attribute(:nota1)
     @nota2 = read_attribute(:nota2)
@@ -25,7 +25,7 @@ class Aluno < ActiveRecord::Base
   def situacaoAluno
     @media = media()
     if @media >= 7
-    "Aprovado"
+		"Aprovado"
     elsif mediaSubstituta() >= 7
               "Recuperacao"    
     else
@@ -37,8 +37,8 @@ class Aluno < ActiveRecord::Base
     @nota1 = read_attribute(:nota1)
     @nota2 = read_attribute(:nota2)
     @nota3 = read_attribute(:nota3)
-    @nota4 = read_attribute(:nota4) 
-    
+    @nota4 = read_attribute(:nota4)	
+
     if @nota1 == nil
       @nota1 = 0
     end
@@ -51,9 +51,9 @@ class Aluno < ActiveRecord::Base
     if @nota4 == nil
       @nota4 = 0
     end
-    
+
     @menor = @nota1
-    @menorPos = 1 
+    @menorPos = 1	
     if @nota2 < @menor
       @menor = @nota2
       @menorPos = 2
@@ -86,6 +86,6 @@ class Aluno < ActiveRecord::Base
     end
     return (@nota1 + @nota2 + @nota3 + @nota4)/4
   end
-  
-  
+
+
 end

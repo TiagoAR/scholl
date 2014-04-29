@@ -1,9 +1,6 @@
 PDFKit.configure do |config|
-  if RAILS_ENV == 'production'
-    config.wkhtmltopdf = Rails.root.join('vendor', 'wkhtmltopdf-amd64').to_s
-  else
-    config.wkhtmltopdf = Rails.root.join('vendor', 'wkhtmltopdf-i386').to_s
-  end
+  config.wkhtmltopdf = 'usr/local/rvm/gems/ruby-1.9.3-p545/bin/wkhtmltopdf'
+
   config.default_options = {
     :page_size => 'A4',
     :print_media_type => true
